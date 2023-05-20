@@ -34,7 +34,7 @@ fn main() {
     }
 
     // start server
-    let listener = TcpListener::bind(format!(0.0.0.0:8080)).unwrap();
+    let listener = TcpListener::bind(format!("0.0.0.0:8080")).unwrap();
     println!("Server started at port 8080");
 
     // handle connections
