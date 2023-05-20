@@ -23,7 +23,7 @@ const DB_URL: &str = !env("DATABASE_URL");
 // constants
 const OK_RESPONSE: &str = "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n";
 const NOT_FOUND: &str = "HTTP/1.1 404 NOT FOUND\r\n\r\n";
-const INTERNAL_SERVER_ERROR: &str = "HTTP/1.1 500 INTERNAL SERVER ERROR\r\n\r\n";
+const INTERNAL_ERROR: &str = "HTTP/1.1 500 INTERNAL SERVER ERROR\r\n\r\n";
 
 // main function
 fn main() {
@@ -83,7 +83,7 @@ fn handle_post_request(request: &str) -> (String, String) {
             ).unwrap();
             (OK_RESPONSE.to_string(), "User created".to_string())
         }
-        _ => (INTERNAL_SERVER_ERROR.to_string(), "Internal Server Error".to_string()),
+        _ => (INTERNAL_ERROR.to_string(), "Internal Server Error".to_string()),
     }
 }
 
@@ -120,7 +120,7 @@ fn handle_get_all_request(_request: &str) -> (String, String) {
             }
             (OK_RESPONSE.to_string(), serde_json::to_string(&users).unwrap())
         }
-        _ => (INTERNAL_SERVER_ERROR.to_string(), "Internal Server Error".to_string()),
+        _ => (INTERNAL_ERROR.to_string(), "Internal Server Error".to_string()),
     }
 }
 
@@ -137,7 +137,7 @@ fn handle_put_request(request: &str) -> (String, String) {
             ).unwrap();
             (OK_RESPONSE.to_string(), "User updated".to_string())
         }
-        _ => (INTERNAL_SERVER_ERROR.to_string(), "Internal Server Error".to_string()),
+        _ => (INTERNAL_ERROR.to_string(), "Internal Server Error".to_string()),
     }
 }
 
@@ -152,7 +152,7 @@ fn handle_delete_request(request: &str) -> (String, String) {
 
             (OK_RESPONSE.to_string(), "User deleted".to_string())
         }
-        _ => (INTERNAL_SERVER_ERROR.to_string(), "Internal Server Error".to_string()),
+        _ => (INTERNAL_ERROR.to_string(), "Internal Server Error".to_string()),
     }
 }
 
