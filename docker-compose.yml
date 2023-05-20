@@ -10,7 +10,7 @@ services:
             args:
                 DATABASE_URL: postgresql://postgres:postgres@db:5432/postgres
         ports:
-            - 8000:8000
+            - 8080:8080
         depends_on:
             - db
 

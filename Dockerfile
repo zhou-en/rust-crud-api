@@ -20,6 +20,6 @@ FROM debian:buster-slim
 
 WORKDIR /usr/local/bin
 
-COPY --from=builder /app/target/release/actix-web-app .
+COPY --from=builder /app/target/release/rust-crud-api .
 
 CMD ["./rust-crud-api"]
